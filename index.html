@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawsome Pets Shop - Pet Products & Supplies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header/Navigation -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <h1>🐾 Pawsome Pets Shop</h1>
+          <p class="tagline">Everything Your Pet Needs</p>
+        </div>
+        <nav class="nav">
+          <button class="nav-btn" data-section="browse">Shop</button>
+          <button class="nav-btn" data-section="track">Track Order</button>
+          <button class="cart-btn" id="cartBtn">
+            🛒 Cart <span class="cart-count">0</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Browse Products Section -->
+    <section id="browse-section" class="section active">
+      <h2>Browse Products</h2>
+
+      <!-- Category Filter -->
+      <div class="category-filter">
+        <button class="category-btn active" data-category="all">All Products</button>
+        <div id="categoryButtons"></div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be loaded here by script.js -->
+      </div>
+    </section>
+
+    <!-- Shopping Cart Section -->
+    <section id="cart-section" class="section">
+      <h2>Shopping Cart</h2>
+      <div id="cartContent">
+        <!-- Cart items will be displayed here -->
+      </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section id="checkout-section" class="section">
+      <h2>Checkout</h2>
+      <div class="checkout-container">
+        <div class="checkout-form">
+          <h3>Order Details</h3>
+          <form id="checkoutForm">
+            <div class="form-group">
+              <label for="customerName">Full Name *</label>
+              <input type="text" id="customerName" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+              <label for="customerPhone">Contact Number *</label>
+              <input type="tel" id="customerPhone" required placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+              <label for="orderType">Order Type *</label>
+              <select id="orderType" required>
+                <option value="">Select order type</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="paymentMethod">Payment Method *</label>
+              <select id="paymentMethod" required>
+                <option value="">Select payment method</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="specialNotes">Special Notes (Optional)</label>
+              <textarea id="specialNotes" placeholder="Any special instructions or notes..."></textarea>
+            </div>
+          </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+          <h3>Order Summary</h3>
+          <div id="summaryItems">
+            <!-- Summary items will be displayed here -->
+          </div>
+          <div class="summary-total">
+            <strong>Total: RM <span id="summaryTotal">0.00</span></strong>
+          </div>
+          <button class="btn btn-primary btn-full" id="placeOrderBtn">Place Order</button>
+          <button class="btn btn-secondary btn-full" data-section="browse">Continue Shopping</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Confirmation Section -->
+    <section id="confirmation-section" class="section">
+      <div class="confirmation-card">
+        <div class="confirmation-icon">✓</div>
+        <h2>Order Placed Successfully!</h2>
+        <div class="order-number">
+          <p>Order Number:</p>
+          <h3 id="orderNumber">#000001</h3>
+        </div>
+        <div class="confirmation-details">
+          <p><strong>Status:</strong> <span class="status-badge status-new">NEW</span></p>
+          <p>Your order has been received and is being prepared.</p>
+          <p>You will receive updates via the order tracking system.</p>
+        </div>
+        <button class="btn btn-primary" data-section="track">Track Your Order</button>
+        <button class="btn btn-secondary" data-section="browse">Continue Shopping</button>
+      </div>
+    </section>
+
+    <!-- Order Tracking Section -->
+    <section id="track-section" class="section">
+      <h2>Track Your Order</h2>
+      <div class="tracking-container">
+        <div class="tracking-search">
+          <h3>Enter Your Order Number</h3>
+          <div class="search-form">
+            <input type="text" id="trackingOrderNumber" placeholder="Enter order number (e.g., #001)" maxlength="10">
+            <button class="btn btn-primary" id="searchOrderBtn">Search</button>
+          </div>
+          <p class="hint-text">Format: #001, #002, etc.</p>
+        </div>
+
+        <div id="trackingResult" class="tracking-result hidden">
+          <div class="tracking-info">
+            <div class="tracking-order-details">
+              <h3 id="trackingOrderNum">Order #001</h3>
+              <p id="trackingCustomerName">Customer: John Doe</p>
+              <p id="trackingOrderDate">Date: Sept 13, 2024</p>
+            </div>
+
+            <div class="tracking-status">
+              <div class="status-timeline">
+                <div class="status-step" data-status="NEW">
+                  <div class="status-step-dot"></div>
+                  <div class="status-step-label">NEW</div>
+                </div>
+                <div class="status-step" data-status="PREPARING">
+                  <div class="status-step-dot"></div>
+                  <div class="status-step-label">PREPARING</div>
+                </div>
+                <div class="status-step" data-status="READY">
+                  <div class="status-step-dot"></div>
+                  <div class="status-step-label">READY</div>
+                </div>
+                <div class="status-step" data-status="COMPLETED">
+                  <div class="status-step-dot"></div>
+                  <div class="status-step-label">COMPLETED</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tracking-items">
+              <h4>Order Items:</h4>
+              <div id="trackingOrderItems">
+                <!-- Items will be displayed here -->
+              </div>
+            </div>
+
+            <div class="tracking-total">
+              <p><strong>Total Amount: RM <span id="trackingTotalAmount">0.00</span></strong></p>
+            </div>
+
+            <button class="btn btn-secondary" data-section="browse">Back to Shop</button>
+          </div>
+
+          <div id="orderNotFound" class="order-not-found hidden">
+            <p>Order not found. Please check your order number and try again.</p>
+            <button class="btn btn-secondary" id="tryAgainBtn">Try Again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Pawsome Pets Shop. All rights reserved.</p>
+      <p>Contact: <a href="tel:+60123456789">+601-2345-6789</a> | <a href="mailto:info@pawsomepets.com">info@pawsomepets.com</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
