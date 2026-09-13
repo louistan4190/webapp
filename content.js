@@ -30,7 +30,7 @@ const shopContent = {
       name: 'Premium Dog Kibble',
       description: 'High-quality dry food for adult dogs',
       price: 45.99,
-      image: 'pet food 1.jpg'
+      image: 'images/pet food 1.jpg'
     },
     {
       id: 'prod-002',
@@ -38,7 +38,7 @@ const shopContent = {
       name: 'Puppy Growth Formula',
       description: 'Specially formulated for growing puppies',
       price: 52.99,
-      image: 'pet food 2.jpg'
+      image: 'images/pet food 2.jpg'
     },
     {
       id: 'prod-003',
@@ -46,7 +46,7 @@ const shopContent = {
       name: 'Organic Chicken Bites',
       description: 'Natural dog treats with real chicken',
       price: 18.99,
-      image: 'pet food 3.jpg'
+      image: 'images/pet food 3.jpg'
     },
 
     // Cat Food
@@ -56,7 +56,7 @@ const shopContent = {
       name: 'Premium Cat Dry Food',
       description: 'Complete nutrition for adult cats',
       price: 39.99,
-      image: 'pet food.jpg'
+      image: 'images/pet food.jpg'
     },
     {
       id: 'prod-005',
